@@ -8,3 +8,6 @@ to download
 - https://www.youtube.com/watch?v=4JyBeN69wq4
 
 Up next = atomic design: https://bradfrost.com/blog/post/atomic-web-design/
+
+to add the following script when prisma is installed: 
+    "postinstall": "prisma generate"
