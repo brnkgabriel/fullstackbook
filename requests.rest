@@ -1,4 +1,4 @@
-GET http://localhost:3000
+GET http://localhost:3000/
 
 ###
 POST http://localhost:3000/auth/login
@@ -10,8 +10,41 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:3000/profile
+GET http://localhost:3000/api/profile
 
 ###
-GET http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmlhIiwic3ViIjoyLCJpYXQiOjE2ODU3Nzk4ODZ9.xJbolkMNyReVdmq5ARtgvHGIBRu1EyjIIMTZ-fzQF90
+GET http://localhost:3000/api/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmlhIiwic3ViIjoyLCJpYXQiOjE2ODU3ODk4MTMsImV4cCI6MTY4NTc5NTgxM30.QQcUsHA34nUcrY4nMzgQTL6EdZJJ3mKSVemoaCx2u9s
+
+###
+GET http://localhost:3000/api/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmlhIiwic3ViIjoyLCJpYXQiOjE2ODU3ODk4MTMsImV4cCI6MTY4NTc5NTgxM30.QQcUsHA34nUcrY4nMzgQTL6EdZJJ3mKSVemoaCx2u9s
+
+
+### (Maria has user role, accessing /api/protected should deny her)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "maria",
+  "password": "guess"
+}
+
+### (Maria has admin role, accessing /api/protected should permit him)
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "john",
+  "password": "changeme"
+}
+
+
+### (Maria's Access = should be denied)
+GET http://localhost:3000/api/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmlhIiwic3ViIjoyLCJpYXQiOjE2ODU3OTAwNzUsImV4cCI6MTY4NTc5NjA3NX0.2gDYUpP12ZNozlW-Sl0kWBM5op7E9rhHC35nk0Yj5do
+
+
+### (John's Access = should be granted)
+GET http://localhost:3000/api/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJzdWIiOjEsImlhdCI6MTY4NTc5MDAyOSwiZXhwIjoxNjg1Nzk2MDI5fQ.wvI2ubkcxUXuHuX3I1sB1nAf8R5s67oxVVDhgDqzfbI

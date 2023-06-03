@@ -20,7 +20,9 @@ export class AuthModule {
     return {
       imports: [
         JwtModule.register({
-          secret: process.env.JWT_SECRET   // process.env.SECRET will return the proper value
+          // process.env.SECRET will return the proper value
+          secret: process.env.JWT_SECRET,
+          signOptions: { expiresIn: '6000s' }
         })
       ],
       module: AuthModule
