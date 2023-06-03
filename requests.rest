@@ -1,0 +1,17 @@
+GET http://localhost:3000
+
+###
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "maria",
+  "password": "guess"
+}
+
+###
+GET http://localhost:3000/profile
+
+###
+GET http://localhost:3000/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcmlhIiwic3ViIjoyLCJpYXQiOjE2ODU3Nzk4ODZ9.xJbolkMNyReVdmq5ARtgvHGIBRu1EyjIIMTZ-fzQF90

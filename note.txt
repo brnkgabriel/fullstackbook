@@ -1,0 +1,10 @@
+13:24
+
+backend source code: https://www.fullstackbook.com/backend/tutorials/nestjs-jwt/
+frontend source code: https://www.fullstackbook.com/frontend/tutorials/nextjs-jwt/
+
+to download
+- https://www.youtube.com/watch?v=GHTA143_b-s&t=172s
+- https://www.youtube.com/watch?v=4JyBeN69wq4
+
+Up next = atomic design: https://bradfrost.com/blog/post/atomic-web-design/
